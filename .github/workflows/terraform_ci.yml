@@ -32,4 +32,4 @@ jobs:
     - name: terraform validate
       run: terraform validate
     - name: terraform plan
-      run: terraform plan -var-file=envs/terraform.tfvars -out=tfplan
+      run: terraform plan -var-file=terraform.tfvars -out=tfplan
