@@ -1,14 +1,7 @@
 
-resource "aws_lb" "Web_application_ALB" {
-  name               = var.alb_name
-  internal           = false
-  load_balancer_type = "application"
-  subnets            = var.subnet_ids
-  tags               = var.tags
-  
-}
 resource "aws_security_group" "alb_sg" {
   vpc_id = var.vpc_id
+  name = "ALb-aws_security_group"
 
   ingress {
     from_port   = 80
@@ -39,6 +32,16 @@ resource "aws_security_group" "alb_sg" {
 }
 
 
+
+resource "aws_lb" "Web_application_ALB" {
+  name               = var.alb_name
+  internal           = false
+  load_balancer_type = "application"
+  subnets            = var.subnet_ids
+  security_groups    = [aws_security_group.alb_sg.id] 
+  tags               = var.tags
+  
+}
 
 # create a target group for the ALB
 resource "aws_lb_target_group" "web_app_tg" {
