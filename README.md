@@ -61,7 +61,5 @@ Set up AWS credentials in Github Repository
 - architecture.png
 - Dockerfile (if used)
 - .github/workflows/terraform-ci.yml
-- commit history (see Git history)
 
-## Contact
-Owner: Jaweria Aslam / jaweriaaslam1@gmail.com
+
